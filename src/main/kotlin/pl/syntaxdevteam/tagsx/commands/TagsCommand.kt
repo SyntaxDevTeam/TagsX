@@ -11,15 +11,14 @@ import pl.syntaxdevteam.tagsx.gui.TagsGui
 class TagsCommand(private val plugin: TagsX) : CommandExecutor {
 
     private val gui = TagsGui(plugin)
-    private val mm = MiniMessage.miniMessage()
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         if (sender is Player) {
-            gui.open(sender) // ✅ Otwieranie GUI
+            gui.open(sender)
             return true
         }
 
-        sender.sendMessage(mm.deserialize("<red>Tę komendę może użyć tylko gracz!</red>"))
+        plugin.sendMessageWithPrefix(sender, "<red>Tę komendę może użyć tylko gracz!</red>")
         return false
     }
 }

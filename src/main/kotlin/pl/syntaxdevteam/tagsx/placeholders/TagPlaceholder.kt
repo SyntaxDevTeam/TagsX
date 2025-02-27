@@ -22,8 +22,13 @@ class TagPlaceholder(private val plugin: TagsX) : PlaceholderExpansion() {
 
     override fun onRequest(player: OfflinePlayer?, @NotNull params: String): String? {
         if (player == null) return null
+
         return when (params.lowercase()) {
-            "tag" -> plugin.tagStorage.getTag(player.name ?: "") ?: ""
+            "tag" -> {
+                val tag = plugin.tagStorage.getTag(player.name ?: "") ?: ""
+                if (tag.isNotEmpty()) "§f[§r$tag§f]§r" else ""
+
+            }
             else -> null
         }
     }

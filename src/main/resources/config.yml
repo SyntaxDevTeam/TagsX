@@ -1,24 +1,25 @@
-# Configuracja pluginu TagsX
-settings:
-  prefix: "&6[TagsX] "  # Prefiks wiadomości
-  default-tag: "none"   # Domyślny tag dla nowych graczy
-  enable-default-tag: false # Czy przypisywać domyślny tag?
+# If you want to add your own tags, here is a pattern:
+#  name1:
+#    display-name: "§bname1"
+#    display: "§bNAME1"
+#    material: "BLUE_DYE"
+#    permission: "tagsx.tag.name1"
+#
+#  name2:
+#    display-name: "§dNAME2"
+#    display: "§dNAME2"
+#    material: "BLACK_DYE"
+#    permission: "tagsx.tag.name2"
+# ----------------------------------------
 
 tags:
-  admin:
-    display: "&c[Admin]"
-    permission: "tagsx.tag.admin"
-  moderator:
-    display: "&b[Mod]"
-    permission: "tagsx.tag.moderator"
-  vip:
-    display: "&6[VIP]"
-    permission: "tagsx.tag.vip"
+  syntaxdevteam:
+    display-name: "§bSyntaxDevTeam"
+    display: "§bSyntaxDevTeam"
+    material: "BLUE_DYE"
+    permission: "tag.syntaxdevteam"
 
-messages:
-  no-permission: "&cNie masz uprawnień do tej komendy!"
-  tag-changed: "&aZmieniono twój tag na: %tag%"
-  invalid-tag: "&cNie znaleziono takiego taga!"
+
 
 database:
   type: "sqlite"  # "mysql" lub "sqlite"
