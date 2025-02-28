@@ -2,12 +2,31 @@ name: TagsX
 version: ${version}
 description: ${description}
 main: pl.syntaxdevteam.tagsx.TagsX
-api-version: '1.21'
-authors: [ SyntaxDevTeam ]
-website: https://syntaxdevteam.pl
+api-version: '1.20'
+
+authors: [SyntaxDevTeam]
+website: https://github.com/SyntaxDevTeam/TagsX
+support:
+  issues: https://github.com/SyntaxDevTeam/TagsX/issues
+  updates: https://github.com/SyntaxDevTeam/TagsX/releases
+
+localization:
+  available: [en_US, pl_PL, fr_FR, es_ES, de_DE]
+  default: en_US
+
+loader: pl.syntaxdevteam.tagsx.loader.SyntaxLoader
+has-open-classloader: false
+load: POSTWORLD
+
 
 dependencies:
   server:
     PlaceholderAPI:
       load: BEFORE
       required: true
+
+commands:
+  tags:
+    description: Otwira GUI z tagami
+    usage: /tags
+    permission:

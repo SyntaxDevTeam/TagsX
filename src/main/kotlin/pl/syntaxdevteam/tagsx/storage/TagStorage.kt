@@ -23,7 +23,7 @@ class TagStorage(private val plugin: TagsX) {
             tags[key] = tagsConfig.getString(key) ?: ""
         }
 
-        plugin.logger.info("Załadowano ${tags.size} tagów z tags.yml!")
+        plugin.logger.debug("Załadowano ${tags.size} tagów z tags.yml!")
     }
 
     fun saveTags() {
@@ -33,7 +33,7 @@ class TagStorage(private val plugin: TagsX) {
         }
 
         tagsConfig.save(tagsFile)
-        plugin.logger.info("Zapisano tagi do tags.yml!")
+        plugin.logger.debug("Zapisano tagi do tags.yml!")
     }
 
     fun setTag(player: String, tag: String) {
@@ -42,7 +42,7 @@ class TagStorage(private val plugin: TagsX) {
         tagsConfig.set(player, tag)
         tagsConfig.save(tagsFile)
 
-        plugin.logger.info("Ustawiono tag '$tag' dla gracza $player i zapisano do tags.yml")
+        plugin.logger.debug("Ustawiono tag '$tag' dla gracza $player i zapisano do tags.yml")
     }
 
     fun getTag(player: String): String {

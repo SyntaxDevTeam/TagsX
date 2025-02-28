@@ -1,15 +1,16 @@
 # If you want to add your own tags, here is a pattern:
-#  name1:
-#    display-name: "§bname1"
-#    display: "§bNAME1"
-#    material: "BLUE_DYE"
-#    permission: "tagsx.tag.name1"
+# tags:
+#   name1:
+#     display-name: "§bname1"
+#     display: "§bNAME1"
+#     material: "BLUE_DYE"
+#     permission: "tagsx.tag.name1"
 #
-#  name2:
-#    display-name: "§dNAME2"
-#    display: "§dNAME2"
-#    material: "BLACK_DYE"
-#    permission: "tagsx.tag.name2"
+#   name2:
+#     display-name: "§dNAME2"
+#     display: "§dNAME2"
+#     material: "BLACK_DYE"
+#     permission: "tagsx.tag.name2"
 # ----------------------------------------
 
 tags:
@@ -17,17 +18,6 @@ tags:
     display-name: "§bSyntaxDevTeam"
     display: "§bSyntaxDevTeam"
     material: "BLUE_DYE"
-    permission: "tag.syntaxdevteam"
+    permission: "tagsx.tag.syntaxdevteam"
 
-
-
-database:
-  type: "sqlite"  # "mysql" lub "sqlite"
-  sqlite-file: "plugins/TagsX/tags.db"
-  mysql:
-    host: "localhost"
-    port: 3306
-    database: "tagsx"
-    user: "root"
-    password: "password"
 

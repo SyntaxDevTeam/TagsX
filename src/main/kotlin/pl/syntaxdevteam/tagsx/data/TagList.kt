@@ -4,7 +4,7 @@ import org.bukkit.Material
 import pl.syntaxdevteam.tagsx.TagsX
 
 object TagList {
-    val tags = mutableListOf<TagItem>()
+    private val tags = mutableListOf<TagItem>()
 
     fun loadTags(plugin: TagsX) {
         tags.clear()
@@ -16,10 +16,6 @@ object TagList {
 
             tags.add(TagItem(material, display))
         }
-        plugin.logger.info("✅ Załadowano ${tags.size} tagów z config.yml!")
+        plugin.logger.debug("✅ Załadowano ${tags.size} tagów z config.yml!")
     }
 }
-
-data class TagItem(val material: Material, val name: String)
-
-// §§§
