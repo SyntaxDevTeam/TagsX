@@ -7,18 +7,17 @@ import java.io.File
 
 class TagStorage(private val plugin: TagsX) {
 
-    private lateinit var tagsFile: File
-
+    private val tagsFile = File(plugin.dataFolder, "tags.yml")
+    private val tagsConfig: FileConfiguration = YamlConfiguration.loadConfiguration(tagsFile)
     private val tags = mutableMapOf<String, String>()
 
     fun loadTags() {
-        tagsFile = File(plugin.dataFolder, "tags.yml")
 
         if (!tagsFile.exists()) {
             tagsFile.parentFile.mkdirs()
             plugin.saveResource("tags.yml", false)
         }
-        val tagsConfig: FileConfiguration = YamlConfiguration.loadConfiguration(tagsFile)
+
         for (key in tagsConfig.getKeys(false)) {
             tags[key] = tagsConfig.getString(key) ?: ""
         }
@@ -27,7 +26,6 @@ class TagStorage(private val plugin: TagsX) {
     }
 
     fun saveTags() {
-        val tagsConfig: FileConfiguration = YamlConfiguration.loadConfiguration(tagsFile)
         for ((player, tag) in tags) {
             tagsConfig.set(player, tag)
         }
@@ -37,7 +35,6 @@ class TagStorage(private val plugin: TagsX) {
     }
 
     fun setTag(player: String, tag: String) {
-        val tagsConfig: FileConfiguration = YamlConfiguration.loadConfiguration(tagsFile)
         tags[player] = tag
         tagsConfig.set(player, tag)
         tagsConfig.save(tagsFile)

@@ -13,6 +13,7 @@
 #     permission: "tagsx.tag.name2"
 # ----------------------------------------
 
+
 tags:
   syntaxdevteam:
     display-name: "§bSyntaxDevTeam"
@@ -21,3 +22,16 @@ tags:
     permission: "tagsx.tag.syntaxdevteam"
 
 
+# Plugin language selection. Possible values:  NL, EN, PL, DE, ES, FR. If you would like to add your own language file, please contact us on Discord (https://discord.gg/Zk6mxv7eMh).
+language: "PL"
+
+# Update settings
+checkForUpdates: true # Update check settings
+autoDownloadUpdates: false # Automatic update download settings
+
+# Debug mode set to true provides more detailed logs in the console
+debug: false
+
+# Should StatsCollector be enabled? Recommended setting: true
+stats:
+  enabled: true
