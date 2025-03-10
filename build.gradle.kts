@@ -23,7 +23,7 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("net.kyori:adventure-text-serializer-legacy:4.18.0")
-    compileOnly("net.kyori:adventure-text-minimessage:4.18.0")
+    compileOnly("net.kyori:adventure-text-minimessage:4.19.0")
     compileOnly("net.kyori:adventure-text-serializer-gson:4.18.0")
     compileOnly("me.clip:placeholderapi:2.11.6")
 }
