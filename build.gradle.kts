@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.1.20-RC2"
-    id("com.gradleup.shadow") version "9.0.0-beta8"
+    kotlin("jvm") version "2.1.20-Beta2"
+    id("com.gradleup.shadow") version "9.0.0-beta10"
 }
 
 group = "pl.syntaxdevteam"
