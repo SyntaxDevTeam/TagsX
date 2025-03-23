@@ -16,7 +16,7 @@ object TagList {
 
             tags.add(TagItem(material, display))
         }
-        plugin.logger.info("✅ Załadowano ${tags.size} tagów z config.yml!")
+        plugin.logger.info("✅ Loaded ${tags.size} tags from config.yml!")
     }
 }
 

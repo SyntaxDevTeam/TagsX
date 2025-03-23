@@ -9,15 +9,13 @@ import pl.syntaxdevteam.tagsx.TagsX
 class ReloadCommand(private val plugin: TagsX) : CommandExecutor {
 
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        if (sender is Player) {
-            plugin.sendMessageWithPrefix(sender, "§cNie masz dostępu do tej komendy!")
-        } else {
-            sender.sendMessage("§cTę komendę może wykonać tylko gracz!")
+        if (sender is Player && !sender.hasPermission("tagsx.reload")) {
+            plugin.sendMessageWithPrefix(sender, "§cYou do not have permission to use this command!")
+            return true
         }
 
-
         plugin.reloadConfig()
-        plugin.sendMessageWithPrefix(sender, "§aPlugin TagsX został poprawnie przeładowany!")
+        plugin.sendMessageWithPrefix(sender, "§aThe TagsX plugin has been successfully reloaded!")
         return true
     }
 }

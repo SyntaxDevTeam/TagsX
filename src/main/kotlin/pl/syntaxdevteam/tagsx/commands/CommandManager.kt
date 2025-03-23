@@ -16,9 +16,15 @@ class CommandManager(private val plugin: TagsX) {
         val tagsCommand = object : BukkitCommand("tags") {
             override fun execute(sender: CommandSender, label: String, args: Array<out String>): Boolean {
                 if (sender !is Player) {
-                    sender.sendMessage("§cTa komenda jest tylko dla graczy!")
+                    sender.sendMessage("§cThis command is only for players!")
                     return false
                 }
+
+                if (!sender.hasPermission("tagsx.cmd.tags")) {
+                    sender.sendMessage("§cYou do not have permission to use this command!")
+                    return true
+                }
+
                 gui.open(sender)
                 return true
             }
@@ -27,21 +33,21 @@ class CommandManager(private val plugin: TagsX) {
         val tagsxCommand = object : BukkitCommand("tagsx"), TabCompleter {
             override fun execute(sender: CommandSender, label: String, args: Array<out String>): Boolean {
                 if (args.isEmpty() || args[0].lowercase() != "reload") {
-                    sender.sendMessage("§cUżycie: /tagsx reload")
+                    sender.sendMessage("§cUsage: /tagsx reload")
                     return true
                 }
 
                 if (!sender.hasPermission("tagsx.reload")) {
                     if (sender is Player) {
-                        plugin.sendMessageWithPrefix(sender, "§cNie masz uprawnień do tej komendy!")
+                        plugin.sendMessageWithPrefix(sender, "§cYou do not have permission to use this command!")
                     } else {
-                        sender.sendMessage("§cNie masz uprawnień do tej komendy!")
+                        sender.sendMessage("§cYou do not have permission to use this command!")
                     }
                     return true
                 }
 
                 plugin.reloadConfig()
-                plugin.sendMessageWithPrefix(sender, "§aPlugin TagsX został poprawnie przeładowany!")
+                plugin.sendMessageWithPrefix(sender, "§aTagsX plugin has been successfully reloaded!")
                 return true
             }
 

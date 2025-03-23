@@ -19,42 +19,33 @@ class TagsGui(private val plugin: TagsX) : Listener {
         val availableTags = plugin.config.getConfigurationSection("tags")?.getKeys(false)
             ?.filter { tag ->
                 val permission = plugin.config.getString("tags.$tag.permission")
-                permission == null || player.hasPermission(permission) // Sprawdzanie uprawnień
+                permission == null || player.hasPermission(permission)
             } ?: return
 
-        // Zmieniamy wielkość GUI, żeby pasowała do ilości dostępnych tagów
         val guiSize = 9 * ((availableTags.size / 9) + 1)
-        val gui: Inventory = Bukkit.createInventory(null, guiSize, "Wybierz swój tag")
+        val gui: Inventory = Bukkit.createInventory(null, guiSize, "Select Your Tag")
 
-        // Tworzymy przedmioty dla każdego tagu
         availableTags.forEachIndexed { index, tagKey ->
             val tagDisplayName = plugin.config.getString("tags.$tagKey.display") ?: "§7[$tagKey]"
             val tagMaterial = Material.matchMaterial(plugin.config.getString("tags.$tagKey.material") ?: "STONE") ?: Material.STONE
 
-            // Tworzymy przedmiot tagu
             gui.setItem(index, createTagItem(tagMaterial, tagKey, player))
         }
 
-        // Otwieramy GUI dla gracza
         player.openInventory(gui)
     }
 
-    // Funkcja do tworzenia przedmiotu z tagiem
     private fun createTagItem(material: Material, tagKey: String, player: Player): ItemStack {
         val item = ItemStack(material)
-        val meta = item.itemMeta?.clone() // Tworzymy kopię, aby uniknąć modyfikacji oryginału
+        val meta = item.itemMeta?.clone()
 
-        // Pobieramy nazwę tagu z konfiguracji
-        val tagDisplayName = plugin.config.getString("tags.$tagKey.display") ?: "[Brak]"
+        val tagDisplayName = plugin.config.getString("tags.$tagKey.display") ?: "[None]"
 
-        // Ustawiamy nazwę przedmiotu w formacie: [TAG] Nick
-        val fullDisplayName = "§f[$tagDisplayName§f] §r${player.name}"  // Zmieniliśmy z player.displayName na player.name
+        val fullDisplayName = "§f[$tagDisplayName§f] §r${player.name}"
 
         if (meta != null) {
             meta.setDisplayName(fullDisplayName)
-
-            // Dodanie opisu przedmiotu
-            meta.lore = listOf("§7Naciśnij, aby ustawić ten tag")
+            meta.lore = listOf("§7Click to set this tag")
 
             item.itemMeta = meta
         }
@@ -64,29 +55,24 @@ class TagsGui(private val plugin: TagsX) : Listener {
 
     @EventHandler
     fun onInventoryClick(event: InventoryClickEvent) {
-        // Sprawdzamy, czy to kliknięcie dotyczy okna wyboru tagu
-        if (event.view.title != "Wybierz swój tag") return
+        if (event.view.title != "Select Your Tag") return
 
-        event.isCancelled = true // Anulujemy domyślne zachowanie kliknięcia
+        event.isCancelled = true
         val player = event.whoClicked as Player
         val clickedItem = event.currentItem ?: return
 
-        // Sprawdzamy, który tag został kliknięty
         val selectedTag = plugin.config.getConfigurationSection("tags")?.getKeys(false)
             ?.find { tagKey ->
                 val tagMaterial = Material.matchMaterial(plugin.config.getString("tags.$tagKey.material") ?: "STONE")
                 tagMaterial == clickedItem.type
             } ?: return
 
-        // Ustawiamy tag gracza
-        val tagDisplay = plugin.config.getString("tags.$selectedTag.display") ?: "[Brak]"
+        val tagDisplay = plugin.config.getString("tags.$selectedTag.display") ?: "[None]"
         plugin.tagStorage.setTag(player.name, tagDisplay)
         plugin.tagStorage.saveTags()
 
-        // Wysyłamy wiadomość do gracza z prefiksem
-        plugin.sendMessageWithPrefix(player, "§aTwój nowy tag: §f$tagDisplay")
+        plugin.sendMessageWithPrefix(player, "§aYour new tag: §f$tagDisplay")
 
-        // Zamykamy GUI
         player.closeInventory()
     }
 }

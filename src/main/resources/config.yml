@@ -18,16 +18,3 @@ tags:
     display: "§bSyntaxDevTeam"
     material: "BLUE_DYE"
     permission: "tag.syntaxdevteam"
-
-
-
-database:
-  type: "sqlite"  # "mysql" lub "sqlite"
-  sqlite-file: "plugins/TagsX/tags.db"
-  mysql:
-    host: "localhost"
-    port: 3306
-    database: "tagsx"
-    user: "root"
-    password: "password"
-

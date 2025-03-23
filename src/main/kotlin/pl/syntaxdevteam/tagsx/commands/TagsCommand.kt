@@ -18,7 +18,7 @@ class TagsCommand(private val plugin: TagsX) : CommandExecutor {
             return true
         }
 
-        plugin.sendMessageWithPrefix(sender, "<red>Tę komendę może użyć tylko gracz!</red>")
+        plugin.sendMessageWithPrefix(sender, "<red>This command can only be used by players!</red>")
         return false
     }
 }

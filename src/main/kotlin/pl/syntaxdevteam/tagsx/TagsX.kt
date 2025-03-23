@@ -35,12 +35,12 @@ class TagsX : JavaPlugin() {
             TagPlaceholder(this).register()
         }
 
-        logger.info("✅ TagsX został włączony pomyślnie!")
+        logger.info("TagsX on")
     }
 
     override fun onDisable() {
         tagStorage.saveTags()
-        logger.info("🛑 TagsX został wyłączony.")
+        logger.info("TagsX off")
     }
 
     fun sendMessageWithPrefix(receiver: CommandSender, message: String) {
