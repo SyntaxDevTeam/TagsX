@@ -6,6 +6,7 @@ import org.bukkit.entity.Player
 import org.jetbrains.annotations.NotNull
 import pl.syntaxdevteam.tagsx.TagsX
 
+@Suppress("UnstableApiUsage")
 class TagPlaceholder(private val plugin: TagsX) : PlaceholderExpansion() {
 
     override fun getIdentifier(): @NotNull String {
@@ -17,7 +18,7 @@ class TagPlaceholder(private val plugin: TagsX) : PlaceholderExpansion() {
     }
 
     override fun getVersion(): @NotNull String {
-        return plugin.description.version
+        return plugin.pluginMeta.version
     }
 
     override fun onRequest(player: OfflinePlayer?, @NotNull params: String): String? {
@@ -25,9 +26,9 @@ class TagPlaceholder(private val plugin: TagsX) : PlaceholderExpansion() {
 
         return when (params.lowercase()) {
             "tag" -> {
-                val tag = plugin.tagStorage.getTag(player.name ?: "") ?: ""
-                if (tag.isNotEmpty()) "§f[§r$tag§f]§r" else ""
-
+                val tag = plugin.tagStorage.getTag(player.name ?: "")
+                if (tag.isNotEmpty()) plugin.config.getString("default_tags_format", "§f[§r$tag§f]§r")?.replace("{tag}", tag) ?: ""
+                else ""
             }
             else -> null
         }
