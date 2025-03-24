@@ -6,7 +6,6 @@ import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.MiniMessage
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import net.kyori.adventure.text.serializer.ansi.ANSIComponentSerializer
-import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer
 import org.bukkit.ChatColor
@@ -24,7 +23,7 @@ import java.io.File
  * @property plugin Instance of the main FormatterX plugin class.
  */
 @Suppress("UnstableApiUsage", "unused")
-class MessageHandler(private val plugin: ChatEnhancerX) {
+class MessageHandler(private val plugin: TagsX) {
     private val language = plugin.config.getString("language") ?: "EN"
     private var messages: FileConfiguration
 
