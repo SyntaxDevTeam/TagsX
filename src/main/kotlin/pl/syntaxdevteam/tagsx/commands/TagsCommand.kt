@@ -21,6 +21,6 @@ class TagsCommand(private val plugin: TagsX) : BasicCommand {
             stack.sender.sendMessage(plugin.messageHandler.getMessage("error", "no_permission"))
             return
         }
-            gui.open(stack.sender.name)
+            gui.open(stack.sender as Player)
     }
 }

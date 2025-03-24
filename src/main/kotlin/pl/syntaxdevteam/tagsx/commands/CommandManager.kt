@@ -14,8 +14,8 @@ class CommandManager(private val plugin: TagsX) {
         manager.registerEventHandler(LifecycleEvents.COMMANDS) { event ->
             val commands: Commands = event.registrar()
             commands.register(
-                "cleanerx",
-                "CleanerX plugin command. Type /cleanerx help to check available commands",
+                "tags",
+                "Type /tags help to check available commands",
                 TagsCommand(plugin)
             )
             commands.register(
