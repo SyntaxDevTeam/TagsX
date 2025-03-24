@@ -19,4 +19,5 @@ tagsx:
 tags:
   new_tag: "<green>Twój nowy tag: <white>{tag_display}</white>.</green>"
   display_tag: "<grey>[</grey>{tag_display_name}<grey>]</grey> <reset>{player}"
-  info: "<grey>>Naciśnij, aby ustawić ten tag"
+  info: "<grey>Naciśnij, aby ustawić ten tag"
+  title: "Wybierz swój Tag"
