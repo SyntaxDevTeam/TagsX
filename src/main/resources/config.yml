@@ -18,3 +18,7 @@ tags:
     display: "§bSyntaxDevTeam"
     material: "BLUE_DYE"
     permission: "tag.syntaxdevteam"
+
+
+# Settings for the plugin
+default_tags_format: "§f[§r{tag}§f]§r"
