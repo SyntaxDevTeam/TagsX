@@ -11,3 +11,15 @@ dependencies:
     PlaceholderAPI:
       load: BEFORE
       required: true
+    MiniPlaceholders:
+      load: BEFORE
+      required: false
+    LuckPerms:
+      load: BEFORE
+      required: false
+    Vault:
+      load: BEFORE
+      required: false
+    VaultUnlocked:
+      load: BEFORE
+      required: false
