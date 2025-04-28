@@ -1,20 +1,38 @@
 # If you want to add your own tags, here is a pattern:
 #  name1:
-#    display-name: "§bname1"
-#    display: "§bNAME1"
+#    display-name: "&bname1"
+#    display: "&bNAME1"
 #    material: "BLUE_DYE"
 #    permission: "tagsx.tag.name1"
 #
 #  name2:
-#    display-name: "§dNAME2"
-#    display: "§dNAME2"
+#    display-name: "&dNAME2"
+#    display: "&dNAME2"
 #    material: "BLACK_DYE"
 #    permission: "tagsx.tag.name2"
 # ----------------------------------------
 
 tags:
   syntaxdevteam:
-    display-name: "§bSyntaxDevTeam"
-    display: "§bSyntaxDevTeam"
+    display-name: "&bSyntaxDevTeam"
+    display: "&bSyntaxDevTeam"
     material: "BLUE_DYE"
     permission: "tag.syntaxdevteam"
+
+
+# Settings for the plugin
+default_tags_format: "&f[&r{tag}&f]&r"
+
+# Plugin language selection. Possible values:  NL, EN, PL, DE, ES, FR. If you would like to add your own language file, please contact us on Discord (https://discord.gg/Zk6mxv7eMh).
+language: PL
+
+# Update settings
+checkForUpdates: true # Update check settings
+autoDownloadUpdates: false # Automatic update download settings
+
+# Debug mode set to true provides more detailed logs in the console
+debug: false
+
+# Should StatsCollector be enabled? Recommended setting: true
+stats:
+  enabled: true

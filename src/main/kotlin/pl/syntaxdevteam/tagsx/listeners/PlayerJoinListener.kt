@@ -1,5 +1,8 @@
 package pl.syntaxdevteam.tagsx.listeners
 
+import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
+import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
@@ -9,11 +12,14 @@ class PlayerJoinListener(private val plugin: TagsX) : Listener {
     @EventHandler
     fun onJoin(event: PlayerJoinEvent) {
         val player = event.player
-        val tag = plugin.tagStorage.getTag(player.name) ?: plugin.config.getString("settings.default-tag", "none")
+        setTag(player)
+    }
 
-        val displayName = "$tag §r${player.name}"
+    fun setTag(player: Player) {
+        val tag = plugin.tagStorage.getTag(player.name)
+        val displayName: Component = plugin.messageHandler.formatMixedTextToMiniMessage("$tag <reset>${player.name}", TagResolver.empty())
 
-        player.setDisplayName(displayName)
-        player.setPlayerListName(displayName)
+        player.displayName(displayName)
+        player.playerListName(displayName)
     }
 }

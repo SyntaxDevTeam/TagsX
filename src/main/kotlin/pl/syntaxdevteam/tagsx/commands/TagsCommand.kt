@@ -1,24 +1,26 @@
 package pl.syntaxdevteam.tagsx.commands
 
-import net.kyori.adventure.text.minimessage.MiniMessage
-import org.bukkit.command.Command
-import org.bukkit.command.CommandExecutor
-import org.bukkit.command.CommandSender
+import io.papermc.paper.command.brigadier.BasicCommand
+import io.papermc.paper.command.brigadier.CommandSourceStack
 import org.bukkit.entity.Player
+import org.jetbrains.annotations.NotNull
 import pl.syntaxdevteam.tagsx.TagsX
 import pl.syntaxdevteam.tagsx.gui.TagsGui
 
-class TagsCommand(private val plugin: TagsX) : CommandExecutor {
+@Suppress("UnstableApiUsage")
+class TagsCommand(private val plugin: TagsX) : BasicCommand {
 
     private val gui = TagsGui(plugin)
 
-    override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
-        if (sender is Player) {
-            gui.open(sender)
-            return true
+    override fun execute(@NotNull stack: CommandSourceStack, @NotNull args: Array<String>) {
+        if (stack.sender !is Player) {
+            stack.sender.sendMessage(plugin.messageHandler.getMessage("error", "console"))
+            return
         }
-
-        plugin.sendMessageWithPrefix(sender, "<red>This command can only be used by players!</red>")
-        return false
+        if (!(stack.sender.hasPermission("tagsx.cmd.tags"))) {
+            stack.sender.sendMessage(plugin.messageHandler.getMessage("error", "no_permission"))
+            return
+        }
+            gui.open(stack.sender as Player)
     }
 }

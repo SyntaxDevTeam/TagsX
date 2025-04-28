@@ -8,8 +8,8 @@ import java.io.File
 class TagStorage(private val plugin: TagsX) {
 
     private lateinit var tagsFile: File
-
     private val tags = mutableMapOf<String, String>()
+    private val log = plugin.logger
 
     fun loadTags() {
         tagsFile = File(plugin.dataFolder, "tags.yml")
@@ -23,7 +23,7 @@ class TagStorage(private val plugin: TagsX) {
             tags[key] = tagsConfig.getString(key) ?: ""
         }
 
-        plugin.logger.info("Loaded ${tags.size} tags from tags.yml!")
+        log.info("Loaded ${tags.size} tags from tags.yml!")
     }
 
     fun saveTags() {
@@ -33,7 +33,7 @@ class TagStorage(private val plugin: TagsX) {
         }
 
         tagsConfig.save(tagsFile)
-        plugin.logger.info("Saved tags to tags.yml!")
+        log.info("Saved tags to tags.yml!")
     }
 
     fun setTag(player: String, tag: String) {
@@ -42,10 +42,10 @@ class TagStorage(private val plugin: TagsX) {
         tagsConfig.set(player, tag)
         tagsConfig.save(tagsFile)
 
-        plugin.logger.info("Set tag '$tag' for player $player and saved to tags.yml")
+        log.info("Set tag '$tag' for player $player and saved to tags.yml")
     }
 
     fun getTag(player: String): String {
-        return tags[player] ?: "None"
+        return tags[player] ?: ""
     }
 }
