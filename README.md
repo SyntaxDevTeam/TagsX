@@ -1,25 +1,27 @@
 # 🏷️ TagsX
 
+## Overview
+TagsX is a polished and lightweight Minecraft server plugin that empowers administrators to curate a catalog of personalized tags and lets players adopt them through an intuitive in-game interface. The plugin stores selections automatically, supports dynamic PlaceholderAPI integration, and keeps management simple thanks to its fully file-driven configuration.
 
-### 📝 Description
-TagsX is a lightweight and intuitive plugin that allows players to select custom tags through an interactive GUI menu. Administrators can easily manage tags directly from the configuration file, while selected tags are stored in `tags.yml`. The plugin supports PlaceholderAPI with the `%tagsx_tag%` placeholder, making it compatible with many other plugins.
+## Key Features
+- **Interactive tag selection** – Players open a streamlined GUI with `/tags` and pick their preferred flair in just a few clicks.
+- **Config-driven management** – Administrators define tags, icons, and permissions directly in `config.yml`, with changes applied instantly via `/tagsx reload`.
+- **Persistent player choices** – Each selection is saved in `tags.yml`, ensuring tags remain active between sessions.
+- **PlaceholderAPI ready** – Use `%tagsx_tag%` anywhere PlaceholderAPI is supported to surface the active tag in chat, scoreboards, or other plugins.
 
-### 🔑 Commands
-| Command        | Description                  | Permission      |
-|---------------|-----------------------------|----------------|
-| `/tags`       | Opens the tags selection GUI (for all players) | `tagsx.command.tags`         |
+## Commands
+| Command | Description | Permission |
+|---------|-------------|------------|
+| `/tags` | Opens the tags selection GUI (available to all players) | `tagsx.command.tags` |
 | `/tagsx reload` | Reloads the plugin configuration | `tagsx.reload` |
 
-### 🔒 Permissions
-- `tagsx.reload` — Allows reloading the plugin configuration with `/tagsx reload`
-- `tagsx.command.tags` — Allows you to open a gui tags with `/tags`
+## Permissions
+- `tagsx.command.tags` — Grants access to the `/tags` GUI.
+- `tagsx.reload` — Allows reloading the plugin configuration with `/tagsx reload`.
 
-### ⚙️ Configuration
-Tags can be added in:
-```
-./plugins/TagsX/config.yml
-```
-Example:
+## Configuration
+Define every available tag in `./plugins/TagsX/config.yml`:
+
 ```yaml
  tags:
    name1:
@@ -34,18 +36,24 @@ Example:
      material: "BLACK_DYE"
      permission: "tag.name2"
 ```
-Each tag must have a unique identifier and display name that will be shown in the GUI.
 
-### 🧑‍💻 Player Experience
-1. Use `/tags` to open the tags GUI.
-2. Select a tag by clicking on it.
-3. The selected tag is automatically saved in `tags.yml`.
-4. Display the selected tag using the `%tagsx_tag%` placeholder (requires PlaceholderAPI).
+Each tag entry requires a unique identifier, a display name (shown in menus), an icon material, and an optional permission gate.
 
-### 🔌 PlaceholderAPI Support
-| Placeholder   | Description                  |
-|---------------|-----------------------------|
-| `%tagsx_tag%` | Displays the currently selected player tag |
+## Player Experience
+1. Run `/tags` to open the interactive GUI.
+2. Browse the available tags and select a favorite.
+3. The choice is stored automatically in `tags.yml`.
+4. Display the active tag anywhere with the `%tagsx_tag%` PlaceholderAPI placeholder.
+
+## PlaceholderAPI Integration
+| Placeholder | Description |
+|-------------|-------------|
+| `%tagsx_tag%` | Resolves to the player's currently selected tag |
+
+## Screenshots
+| In-game GUI | Chat Integration |
+|-------------|-----------------|
+| ![TagsX gameplay screenshot](docs/images/tagsx-gameplay.png) | ![TagsX chat integration screenshot](docs/images/tagsx-chat.png) |
 
 ---
-⭐ **TagsX is the perfect solution for personalizing player identities and making your Minecraft server unique!**
+⭐ **TagsX is the perfect solution for personalizing player identities and elevating the atmosphere on your Minecraft server.**
