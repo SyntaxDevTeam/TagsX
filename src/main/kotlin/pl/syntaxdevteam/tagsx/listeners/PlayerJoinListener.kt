@@ -2,6 +2,7 @@ package pl.syntaxdevteam.tagsx.listeners
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
+import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -13,6 +14,12 @@ class PlayerJoinListener(private val plugin: TagsX) : Listener {
     fun onJoin(event: PlayerJoinEvent) {
         val player = event.player
         setTag(player)
+        Bukkit.getOnlinePlayers()
+            .filter { it != player }
+            .forEach { other ->
+                val otherTag = plugin.tagStorage.getTag(other.name)
+                plugin.nameTagManager.updatePlayerNameTag(other, otherTag)
+            }
     }
 
     fun setTag(player: Player) {
@@ -21,5 +28,6 @@ class PlayerJoinListener(private val plugin: TagsX) : Listener {
 
         player.displayName(displayName)
         player.playerListName(displayName)
+        plugin.nameTagManager.updatePlayerNameTag(player, tag)
     }
 }

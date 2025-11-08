@@ -10,13 +10,19 @@ import pl.syntaxdevteam.core.logging.Logger
 import pl.syntaxdevteam.core.stats.StatsCollector
 import pl.syntaxdevteam.core.update.GitHubSource
 import pl.syntaxdevteam.core.update.ModrinthSource
+import pl.syntaxdevteam.core.update.UpdateChecker
 import pl.syntaxdevteam.message.MessageHandler
 import pl.syntaxdevteam.tagsx.commands.CommandManager
 import pl.syntaxdevteam.tagsx.common.CommandLoggerPlugin
 import pl.syntaxdevteam.tagsx.common.ConfigHandler
+import pl.syntaxdevteam.tagsx.common.NameTagManager
+import pl.syntaxdevteam.tagsx.data.TagList
+import pl.syntaxdevteam.tagsx.gui.TagsGui
 import pl.syntaxdevteam.tagsx.hooks.HookHandler
+import pl.syntaxdevteam.tagsx.listeners.PlayerJoinListener
 import pl.syntaxdevteam.tagsx.loader.PluginInitializer
 import pl.syntaxdevteam.tagsx.loader.VersionChecker
+import pl.syntaxdevteam.tagsx.placeholders.TagPlaceholder
 import pl.syntaxdevteam.tagsx.storage.TagStorage
 import java.io.File
 import java.util.*
@@ -36,6 +42,8 @@ class TagsX : JavaPlugin() {
     lateinit var commandLoggerPlugin: CommandLoggerPlugin
     lateinit var commandManager: CommandManager
     lateinit var tagStorage: TagStorage
+
+    lateinit var nameTagManager: NameTagManager
 
     lateinit var versionChecker: VersionChecker
     //lateinit var versionCompatibility: VersionCompatibility

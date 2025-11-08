@@ -6,6 +6,7 @@ import pl.syntaxdevteam.tagsx.TagsX
 import pl.syntaxdevteam.tagsx.commands.CommandManager
 import pl.syntaxdevteam.tagsx.common.CommandLoggerPlugin
 import pl.syntaxdevteam.tagsx.common.ConfigHandler
+import pl.syntaxdevteam.tagsx.common.NameTagManager
 import pl.syntaxdevteam.tagsx.data.TagList
 import pl.syntaxdevteam.tagsx.gui.TagsGui
 import pl.syntaxdevteam.tagsx.hooks.HookHandler
@@ -49,6 +50,7 @@ class PluginInitializer(private val plugin: TagsX) {
         plugin.pluginsManager = SyntaxCore.pluginManagerx
         plugin.hookHandler = HookHandler(plugin)
         plugin.versionChecker = VersionChecker(plugin)
+        plugin.nameTagManager = NameTagManager(plugin)
         //plugin.versionCompatibility = VersionCompatibility(plugin.versionChecker)
     }
     private fun setupDatabase() {
