@@ -51,7 +51,7 @@ Each tag entry requires a unique identifier, a display name (shown in menus), an
 | `%tagsx_tag%` | Resolves to the player's currently selected tag |
 
 ## Screenshots
-| In-game GUI | Chat Integration |
+| In-game | Chat Integration |
 |-------------|-----------------|
 | ![TagsX gameplay screenshot](docs/images/tagsx-gameplay.png) | ![TagsX chat integration screenshot](docs/images/tagsx-chat.png) |
 
