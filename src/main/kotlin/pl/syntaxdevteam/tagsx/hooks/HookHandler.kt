@@ -30,7 +30,7 @@ class HookHandler(private val plugin: TagsX) {
      */
     init {
         checkPlaceholderAPI()
-        checkLuckPerms()
+        //checkLuckPerms()
         checkVault()
         if (chat == null || permission == null) {
             checkVaultUnlocked()

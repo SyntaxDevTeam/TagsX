@@ -22,7 +22,9 @@ class TagsGui(private val plugin: TagsX) : Listener {
             } ?: return
 
         val guiSize = 9 * ((availableTags.size / 9) + 1)
-        val gui: Inventory = Bukkit.createInventory(null, guiSize, plugin.messageHandler.getLogMessage("tags", "title"))
+        val gui: Inventory = Bukkit.createInventory(null, guiSize,
+            plugin.messageHandler.stringMessageToComponentNoPrefix("tags", "title")
+        )
 
         availableTags.forEachIndexed { index, tagKey ->
             val tagMaterial = Material.matchMaterial(plugin.config.getString("tags.$tagKey.material") ?: "STONE") ?: Material.STONE
@@ -38,12 +40,16 @@ class TagsGui(private val plugin: TagsX) : Listener {
         val meta = item.itemMeta?.clone()
         val tagDisplayName = plugin.config.getString("tags.$tagKey.display") ?: "" //Bo po co masz mieć na czacie jakieś NONE czy tam BRAK
 
-        val fullDisplayName = plugin.messageHandler.getLogMessage("tags", "display_tag", mapOf("tag_display_name" to tagDisplayName, "player" to player.name))
+        val fullDisplayName = plugin.messageHandler.stringMessageToComponentNoPrefix(
+            "tags",
+            "display_tag",
+            mapOf("tag_display_name" to tagDisplayName, "player" to player.name)
+        )
 
         if (meta != null) {
             meta.displayName(fullDisplayName)
 
-            meta.lore(listOf(plugin.messageHandler.getLogMessage("tags", "info")))
+            meta.lore(listOf(plugin.messageHandler.stringMessageToComponentNoPrefix("tags", "info")))
 
             item.itemMeta = meta
         }
@@ -53,7 +59,7 @@ class TagsGui(private val plugin: TagsX) : Listener {
 
     @EventHandler
     fun onInventoryClick(event: InventoryClickEvent) {
-        if (event.view.title() != plugin.messageHandler.getLogMessage("tags", "title")) return
+        if (event.view.title() != plugin.messageHandler.stringMessageToComponentNoPrefix("tags", "title")) return
 
         event.isCancelled = true
         val player = event.whoClicked as Player
@@ -68,7 +74,13 @@ class TagsGui(private val plugin: TagsX) : Listener {
         plugin.tagStorage.setTag(player.name, tagDisplay)
         plugin.tagStorage.saveTags()
 
-        player.sendMessage(plugin.messageHandler.getMessage("tags", "new_tag", mapOf("tag_display" to tagDisplay)))
+        player.sendMessage(
+            plugin.messageHandler.stringMessageToComponent(
+                "tags",
+                "new_tag",
+                mapOf("tag_display" to tagDisplay)
+            )
+        )
         pjl.setTag(player) // Upewniam się że tag jest ustawiony bez konieczności relogowania
         player.closeInventory()
     }

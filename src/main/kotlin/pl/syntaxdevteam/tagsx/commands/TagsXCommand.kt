@@ -15,12 +15,12 @@ class TagsXCommand(private val plugin: TagsX) : BasicCommand {
         }
 
         if (!stack.sender.hasPermission("tagsx.reload")) {
-            stack.sender.sendMessage("§cNie masz uprawnień do tej komendy!")
+            stack.sender.sendMessage(plugin.messageHandler.stringMessageToComponent("error", "no_permission"))
             return
         }
 
         plugin.reloadConfig()
-        stack.sender.sendMessage("§aPlugin TagsX został poprawnie przeładowany!")
+        stack.sender.sendMessage(plugin.messageHandler.stringMessageToComponent("tagsx", "reload"))
         return
     }
 

@@ -6,18 +6,17 @@ import org.bukkit.entity.Player
 import org.jetbrains.annotations.NotNull
 import pl.syntaxdevteam.tagsx.TagsX
 
-@Suppress("UnstableApiUsage")
 class TagPlaceholder(private val plugin: TagsX) : PlaceholderExpansion() {
 
-    override fun getIdentifier(): @NotNull String {
+    override fun getIdentifier(): String {
         return "tagsx"
     }
 
-    override fun getAuthor(): @NotNull String {
+    override fun getAuthor(): String {
         return "SyntaxDevTeam"
     }
 
-    override fun getVersion(): @NotNull String {
+    override fun getVersion(): String {
         return plugin.pluginMeta.version
     }
 
