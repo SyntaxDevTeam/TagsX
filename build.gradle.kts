@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "pl.syntaxdevteam"
-version = "1.0.2"
+version = "1.0.2-DEV"
 description = "TagsX"
 
 repositories {
@@ -75,7 +75,7 @@ tasks.processResources {
 }
 
 tasks.named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
-    archiveBaseName.set("PunisherX")
+    archiveBaseName.set("TagsX")
     archiveClassifier.set("")
     archiveVersion.set(project.version.toString())
     mergeServiceFiles()
