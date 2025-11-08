@@ -81,7 +81,7 @@ class TagsGui(private val plugin: TagsX) : Listener {
                 mapOf("tag_display" to tagDisplay)
             )
         )
-        pjl.setTag(player) // Upewniam się że tag jest ustawiony bez konieczności relogowania
+        pjl.setTag(player) // Upewniamy się, że tag jest ustawiony bez konieczności relogowania
         player.closeInventory()
     }
 }

@@ -22,4 +22,3 @@ object TagList {
 
 data class TagItem(val material: Material, val name: String)
 
-// §§§

@@ -49,7 +49,7 @@ class NameTagManager(private val plugin: TagsX) {
 
     private fun teamName(player: Player): String {
         val uuid = player.uniqueId.toString().replace("-", "")
-        val suffix = if (uuid.length >= 14) uuid.substring(0, 14) else uuid
+        val suffix = if (uuid.length >= 14) uuid.take(14) else uuid
         return "tx$suffix"
     }
 }

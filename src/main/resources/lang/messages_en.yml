@@ -9,7 +9,7 @@ prefix: "<gradient:#ffcc66:#ff6600>[TagsX]</gradient>"
 # Error handling messages
 error:
   no_permission: "<red>You do not have permission to use this command.</red>"
-  player_not_found: "<gold>Player with the nickname {player} was not found.</gold>"
+  player_not_found: "<gold>Player with the nickname <player> was not found.</gold>"
   console: "<red>Only a player can use this command.</red>"
   reload: "<red>An error occurred while reloading the configuration:</red> "
 
@@ -17,7 +17,7 @@ tagsx:
   reload: "<green>Configuration successfully reloaded.</green>"
 
 tags:
-  new_tag: "<green>Your new tag: <white>{tag_display}</white>.</green>"
-  display_tag: "<grey>[</grey>{tag_display_name}<grey>]</grey> <reset>{player}"
+  new_tag: "<green>Your new tag: <white><tag_display></white>.</green>"
+  display_tag: "<grey>[</grey><tag_display_name><grey>]</grey> <reset><player>"
   info: "<grey>Click to set this tag</grey>"
   title: "Select your Tag"

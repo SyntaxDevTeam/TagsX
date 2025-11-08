@@ -9,7 +9,7 @@ prefix: "<gradient:#ffcc66:#ff6600>[TagsX]</gradient>"
 # Wiadomości obsługi błędów
 error:
   no_permission: "<red>Nie masz uprawnień do tej komendy.</red>"
-  player_not_found: "<gold>Nie znaleziono gracza o nicku {player}.</gold>"
+  player_not_found: "<gold>Nie znaleziono gracza o nicku <player>.</gold>"
   console: "<red>Tylko gracz może użyć tej komendy</red>"
   reload: "<red>Wystąpił błąd podczas przełądowania konfiguracji:</red> "
 
@@ -17,7 +17,7 @@ tagsx:
   reload: "<green>Pomyślnie przeładowano konfigurację.</green>"
 
 tags:
-  new_tag: "<green>Twój nowy tag: <white>{tag_display}</white>.</green>"
-  display_tag: "<grey>[</grey>{tag_display_name}<grey>]</grey> <reset>{player}"
+  new_tag: "<green>Twój nowy tag: <white><tag_display></white>.</green>"
+  display_tag: "<grey>[</grey><tag_display_name><grey>]</grey> <reset><player>"
   info: "<grey>Naciśnij, aby ustawić ten tag"
   title: "Wybierz swój Tag"
