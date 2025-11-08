@@ -1,10 +1,14 @@
 name: TagsX
 version: ${version}
 description: ${description}
-main: pl.syntaxdevteam.tagsx.TagsX
+
 api-version: '1.21'
 authors: [ SyntaxDevTeam ]
 website: https://syntaxdevteam.pl
+
+main: pl.syntaxdevteam.tagsx.TagsX
+loader: pl.syntaxdevteam.tagsx.loader.SyntaxLoader
+has-open-classloader: false
 
 dependencies:
   server:

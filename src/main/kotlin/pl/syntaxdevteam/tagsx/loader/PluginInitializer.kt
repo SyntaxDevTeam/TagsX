@@ -11,12 +11,14 @@ import pl.syntaxdevteam.tagsx.gui.TagsGui
 import pl.syntaxdevteam.tagsx.hooks.HookHandler
 import pl.syntaxdevteam.tagsx.listeners.PlayerJoinListener
 import pl.syntaxdevteam.tagsx.placeholders.TagPlaceholder
+import pl.syntaxdevteam.tagsx.storage.TagStorage
 
 class PluginInitializer(private val plugin: TagsX) {
 
     fun onEnable() {
         setUpLogger()
         setupConfig()
+        setupDatabase()
         setupHandlers()
         registerEvents()
         registerCommands()
@@ -49,7 +51,9 @@ class PluginInitializer(private val plugin: TagsX) {
         plugin.versionChecker = VersionChecker(plugin)
         //plugin.versionCompatibility = VersionCompatibility(plugin.versionChecker)
     }
-
+    private fun setupDatabase() {
+        plugin.tagStorage = TagStorage(plugin)
+    }
     /**
      * Registers the plugin commands.
      */
