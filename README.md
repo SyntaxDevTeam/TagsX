@@ -1,5 +1,6 @@
 # 🏷️ TagsX
 
+
 ### 📝 Description
 TagsX is a lightweight and intuitive plugin that allows players to select custom tags through an interactive GUI menu. Administrators can easily manage tags directly from the configuration file, while selected tags are stored in `tags.yml`. The plugin supports PlaceholderAPI with the `%tagsx_tag%` placeholder, making it compatible with many other plugins.
 
