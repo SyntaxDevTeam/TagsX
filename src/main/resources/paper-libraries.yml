@@ -7,5 +7,7 @@ libraries:
   - net.kyori:adventure-text-serializer-legacy:4.25.0
   - net.kyori:adventure-text-serializer-plain:4.25.0
   - net.kyori:adventure-text-serializer-ansi:4.25.0
+  # Core
+  - com.github.ben-manes.caffeine:caffeine:3.2.31
   - pl.syntaxdevteam:core:1.2.5-SNAPSHOT
   - pl.syntaxdevteam:messageHandler:1.0.3
