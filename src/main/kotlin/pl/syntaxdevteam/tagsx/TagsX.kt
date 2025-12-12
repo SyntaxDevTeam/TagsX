@@ -53,7 +53,7 @@ class TagsX : JavaPlugin() {
             GitHubSource("SyntaxDevTeam/TagsX"),
             ModrinthSource("")
         )
-        SyntaxCore.init(this)
+        SyntaxCore.init(this, versionType = "paper")
         pluginInitializer = PluginInitializer(this)
         pluginInitializer.onEnable()
         versionChecker.checkAndLog()

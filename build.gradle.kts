@@ -1,12 +1,12 @@
 plugins {
     kotlin("jvm") version "2.2.21"
-    id("com.gradleup.shadow") version "9.2.2"
+    id("com.gradleup.shadow") version "9.3.0"
     id("xyz.jpenilla.run-paper") version "3.0.2"
     id("pl.syntaxdevteam.plugindeployer") version "1.0.4"
 }
 
 group = "pl.syntaxdevteam"
-version = "1.0.2-DEV"
+version = "1.0.3-DEV"
 description = "TagsX"
 
 repositories {
@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT")
-    compileOnly("pl.syntaxdevteam:core:1.2.5-SNAPSHOT")
+    compileOnly("pl.syntaxdevteam:core:1.2.6")
     compileOnly("pl.syntaxdevteam:messageHandler:1.0.3")
     compileOnly("pl.syntaxdevteam:cleanerx:1.5.3")
     compileOnly("org.eclipse.aether:aether-api:1.1.0")
@@ -82,6 +82,6 @@ tasks.named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJ
 }
 
 plugindeployer {
-    paper { dir = "/home/debian/poligon/Paper/1.21.10/plugins" } //ostatnia wersja dla Paper
+    paper { dir = "/home/debian/poligon/Paper/1.21.11/plugins" } //ostatnia wersja dla Paper
     folia { dir = "/home/debian/poligon/Folia/1.21.8/plugins" } //ostatnia wersja dla Folia
 }
